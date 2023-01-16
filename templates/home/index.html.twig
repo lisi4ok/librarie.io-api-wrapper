@@ -9,12 +9,30 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/dev/www/symfony/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/dev/www/symfony/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    {% if app.user %}
+        {% for project in data %}
+            <div class="project">
+                <h5>
+                    <a href="{{ project.repository_url }}" target="_blank">
+                        {{ project.name }}
+                    </a>
+                </h5>
+                <div>{{ project.description }}</div>
+                <small>
+                    <p>
+                        Latest release
+                        <strong>{{ project.latest_release_number }}</strong>
+                        ||
+                        Updated about
+                        <strong>
+                            {{ project.latest_stable_release_published_at }}
+                        </strong>
+                    </p>
+                </small>
+            </div>
+        {% endfor %}
+    {% endif %}
+
 </div>
 {% endblock %}
