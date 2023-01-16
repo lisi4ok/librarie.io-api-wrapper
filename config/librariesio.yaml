@@ -1,0 +1,5 @@
+parameters:
+    librariesio_api_key: '6586aeb5dc3ed456aa26b4387909b29a'
+    librariesio_api_url: 'https://libraries.io/api'
+    librariesio_default_search_query: 'search?languages=PHP&order=desc&sort=created_at'
+
