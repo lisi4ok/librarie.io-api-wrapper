@@ -28,7 +28,13 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
-
+            guard:
+                # Define the default entry point
+                entry_point: App\Security\LoginFormAuthenticator
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+                    # Add the new Authenticator of Github
+                    - App\Security\GithubAuthenticator
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

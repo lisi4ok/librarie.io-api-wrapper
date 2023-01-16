@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\Oauth\Githubable;
 use App\Entity\Trait\Timestamping\TimestampableTrait;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -16,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
-    use TimestampableTrait;
+    use TimestampableTrait, Githubable;
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
