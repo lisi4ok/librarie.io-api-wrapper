@@ -36,9 +36,11 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
+            $user->setEmail($form->get('email')->getData());
+            $user->setRoles($user->getRoles());
 
             $entityManager->persist($user);
             $entityManager->flush();
@@ -53,7 +55,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_profile');
         }
 
         return $this->render('registration/register.html.twig', [
