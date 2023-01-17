@@ -6,13 +6,8 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class LibrariesIOService
 {
-    private $client;
-    private $params;
-
-    public function __construct(HttpClientInterface $client, ContainerBagInterface $params)
+    public function __construct(private HttpClientInterface $client, private ContainerBagInterface $params)
     {
-        $this->client = $client;
-        $this->params = $params;
     }
 
     public function lastTenPHPLibraries(): array
