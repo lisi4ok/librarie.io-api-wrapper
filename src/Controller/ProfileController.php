@@ -17,8 +17,8 @@ class ProfileController extends AbstractController
     #[Route('/profile', name: 'app_profile')]
     public function index(Request $request): Response
     {
-        if ($request->request->get('search')) {
-            $data = $this->librariesIOService->searchLibraries($request->request->get('search'));
+        if ($keyword = $request->request->get('search')) {
+            $data = $this->librariesIOService->searchLibraries($keyword);
         } else {
             $data = $this->librariesIOService->lastTenPHPLibraries();
         }
@@ -26,7 +26,8 @@ class ProfileController extends AbstractController
 
         return $this->render('profile/index.html.twig', [
             'controller_name' => 'ProfileController',
-            'data' => $data,
+            'data'    => $data,
+            'keyword' => $keyword,
         ]);
     }
 }
