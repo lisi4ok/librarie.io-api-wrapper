@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+        <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+            <img
+                    src="images/password_reset.svg"
+                    class="w-full"
+                    alt="Password Reset"
+            />
+        </div>
+        <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+            {{ form_start(resetForm) }}
+            <div class="mb-6">
+                {{ form_row(resetForm.password) }}
+            </div>
+            <button
+                    type="submit"
+                    class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                    data-mdb-ripple="true"
+                    data-mdb-ripple-color="light"
+            >
+                Reset password
+            </button>
+
+            <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+                You have an account?
+                <a
+                        href="{{ path('app_login') }}"
+                        class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                >Login</a>
+            </p>
+            {{ form_end(resetForm) }}
+        </div>
+    </div>
+{% endblock %}

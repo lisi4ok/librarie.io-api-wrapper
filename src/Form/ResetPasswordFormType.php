@@ -15,7 +15,7 @@ class ResetPasswordFormType extends AbstractType
             ->add('password', PasswordType::class, [
                 'label' => false,
                 'attr' => [
-                    'class' => 'bg-transparent block mt-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none',
+                    'class' => 'form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none',
                     'placeholder' => 'Password',
                 ],
             ])

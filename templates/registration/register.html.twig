@@ -20,9 +20,9 @@
     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
         <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
             <img
-                    src="images/draw2.svg"
+                    src="images/register.svg"
                     class="w-full"
-                    alt="Phone image"
+                    alt="Register"
             />
         </div>
         <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
@@ -38,13 +38,9 @@
             </div>
 
             <div class="flex justify-between items-center mb-6">
-                <a href="#!"
-                   class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
+                <a href="{{ path('app_forgot_password_request') }}"
+                   class="text-gray-600 hover:text-blue-600 focus:text-blue-600 active:text-blue-600 duration-200 transition ease-in-out"
                 >Forgot password?</a>
-                |
-                <a href="{{ path('app_login') }}"
-                   class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                >Login</a>
             </div>
 
             <button
@@ -55,6 +51,14 @@
             >
                 Register
             </button>
+
+            <p class="text-sm font-semibold mt-2 pt-1 mb-0">
+                You have an account?
+                <a
+                        href="{{ path('app_login') }}"
+                        class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
+                >Login</a>
+            </p>
             {{ form_end(registrationForm) }}
         </div>
     </div>
