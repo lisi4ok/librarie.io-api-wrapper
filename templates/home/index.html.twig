@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
 <style>
@@ -9,30 +9,6 @@
 </style>
 
 <div class="example-wrapper">
-
-    {% if app.user %}
-        {% for project in data %}
-            <div class="project">
-                <h5>
-                    <a href="{{ project.repository_url }}" target="_blank">
-                        {{ project.name }}
-                    </a>
-                </h5>
-                <div>{{ project.description }}</div>
-                <small>
-                    <p>
-                        Latest release
-                        <strong>{{ project.latest_release_number }}</strong>
-                        ||
-                        Updated about
-                        <strong>
-                            {{ project.latest_stable_release_published_at }}
-                        </strong>
-                    </p>
-                </small>
-            </div>
-        {% endfor %}
-    {% endif %}
-
+    <h1>Home</h1>
 </div>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block title %}Register{% endblock %}
 
-{% block body %}
+{% block messages %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div id="alert-additional-content-5" class="p-4 border border-gray-300 rounded-lg bg-gray-50 dark:border-gray-600 dark:bg-gray-800" role="alert">
             <div class="flex items-center">
@@ -14,7 +14,9 @@
             </div>
         </div>
     {% endfor %}
+{% endblock %}
 
+{% block body %}
     <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
         <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
             <img

@@ -35,7 +35,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(type: 'boolean')]
+    #[ORM\Column(name: "is_verified", type: 'boolean')]
     private $isVerified = false;
 
     public function getId(): ?int
