@@ -18,6 +18,10 @@
 
 {% block body %}
     {% if app.user %}
+
+
+        {% include 'partials/search.html.twig' %}
+
         {% for project in data %}
             <div class="project">
                 <h5>

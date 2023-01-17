@@ -27,9 +27,22 @@ class LibrariesService
             $url
         );
 
-//        $statusCode = $response->getStatusCode();
-//        $contentType = $response->getHeaders()['content-type'][0];
-//        $content = $response->getContent();
+        $content = array_slice($response->toArray(), 0, 10);
+
+        return $content;
+    }
+
+    public function searchLibraries(string $search): array
+    {
+        $url = rtrim($this->params->get('librariesio_api_url'), '/')
+            . '/search?q=' . $search . '&api_key=' . $this->params->get('librariesio_api_key')
+        ;
+
+        $response = $this->client->request(
+            'GET',
+            $url
+        );
+
         $content = $response->toArray();
 
         return $content;
