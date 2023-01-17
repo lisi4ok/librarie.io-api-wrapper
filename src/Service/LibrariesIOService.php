@@ -4,7 +4,7 @@ namespace App\Service;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
-class LibrariesService
+class LibrariesIOService
 {
     private $client;
     private $params;
@@ -15,7 +15,7 @@ class LibrariesService
         $this->params = $params;
     }
 
-    public function getLibraries(): array
+    public function lastTenPHPLibraries(): array
     {
         $url = rtrim($this->params->get('librariesio_api_url'), '/')
             . '/' . $this->params->get('librariesio_default_search_query')
@@ -32,8 +32,29 @@ class LibrariesService
         return $content;
     }
 
-    public function searchLibraries(string $search): array
+    public function searchLibraries(string $search, array $languages = [],
+                                    array $platforms = [], array $keywords = [], array $licenses = []): array
     {
+
+        if (!empty($languages)) {
+            $languages = http_build_query($languages);
+        }
+        if (!empty($platforms))
+        {
+            $platforms = http_build_query($platforms);
+        }
+        if (!empty($keywords))
+        {
+            $keywords = http_build_query($keywords);
+        }
+        if (!empty($licenses))
+        {
+            $licenses = http_build_query($licenses);
+        }
+
+
+
+
         $url = rtrim($this->params->get('librariesio_api_url'), '/')
             . '/search?q=' . $search . '&api_key=' . $this->params->get('librariesio_api_key')
         ;

@@ -6,22 +6,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\LibrariesService;
+use App\Service\LibrariesIOService;
 
 class ProfileController extends AbstractController
 {
-    public function __construct(LibrariesService $lib)
+    public function __construct(private LibrariesIOService $librariesIOService)
     {
-        $this->lib = $lib;
     }
 
     #[Route('/profile', name: 'app_profile')]
     public function index(Request $request): Response
     {
         if ($request->request->get('search')) {
-            $data = $this->lib->searchLibraries($request->request->get('search'));
+            $data = $this->librariesIOService->searchLibraries($request->request->get('search'));
         } else {
-            $data = $this->lib->getLibraries();
+            $data = $this->librariesIOService->lastTenPHPLibraries();
         }
 
 
