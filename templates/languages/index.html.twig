@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LanguagesController!{% endblock %}
+
+
+{% block body %}
+    <div>
+        {% for language in languages %}
+            {% if language=='Nim' %}
+                {% set continue = true %}
+            {% endif %}
+        <div>
+            <img src="/images/languages/{{ language|lower|replace({'#': "-sharp", '+': ""}) }}/{{ language|lower|replace({'#': "-sharp", '+': ""}) }}.png" alt="{{ language }}"  style="height: 40px; width: 40px;"/>
+            <small>{{ language }}</small>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
