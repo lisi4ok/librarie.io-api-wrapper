@@ -18,30 +18,19 @@
 
 {% block body %}
     {% if app.user %}
-
-
-        {% include 'partials/search.html.twig' %}
-
-        {% for project in data %}
-            <div class="project">
-                <h5>
-                    <a href="{{ project.repository_url }}" target="_blank">
-                        {{ project.name }}
-                    </a>
-                </h5>
-                <div>{{ project.description }}</div>
-                <small>
-                    <p>
-                        Latest release
-                        <strong>{{ project.latest_release_number }}</strong>
-                        ||
-                        Updated about
-                        <strong>
-                            {{ project.latest_stable_release_published_at }}
-                        </strong>
-                    </p>
-                </small>
+        <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+            <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                <img
+                        src="/images/profile.svg"
+                        class="w-full"
+                        alt="Register"
+                />
             </div>
-        {% endfor %}
+            <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+                <div class="mb-6">
+                    <h1>You are logged as {{ app.user.email }}!</h1>
+                </div>
+            </div>
+        </div>
     {% endif %}
 {% endblock %}
